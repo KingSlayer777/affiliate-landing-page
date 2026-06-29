@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Wealth Academy - Build a Digital Product Business</title>
+  <meta name="description" content="A clean affiliate landing page for Digital Wealth Academy with Master Resell Rights, training, templates, content vault, and weekly mentorship.">
+  <style>
+    :root {
+      --ink: #18211f;
+      --muted: #5d6964;
+      --line: #d9e2dc;
+      --paper: #fbfaf5;
+      --white: #ffffff;
+      --mint: #ccecdf;
+      --leaf: #0d7a5f;
+      --leaf-dark: #075642;
+      --gold: #efb13d;
+      --coral: #e66a4e;
+      --sky: #dceefa;
+      --shadow: 0 22px 60px rgba(24, 33, 31, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 250, 245, .9);
+      border-bottom: 1px solid rgba(217, 226, 220, .8);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--leaf);
+      box-shadow: 0 10px 24px rgba(13, 122, 95, .22);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--leaf);
+      color: var(--white);
+      box-shadow: 0 14px 28px rgba(13, 122, 95, .23);
+    }
+
+    .btn-primary:hover {
+      background: var(--leaf-dark);
+      box-shadow: 0 18px 34px rgba(7, 86, 66, .28);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(10, 40, 33, .9) 0%, rgba(10, 40, 33, .76) 42%, rgba(10, 40, 33, .22) 100%),
+        url("https://d1yei2z3i6k35z.cloudfront.net/580128/66174b9996365_ScreenShot2024-04-11at1.22.14PM.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 120px;
+      background: linear-gradient(0deg, var(--paper), transparent);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, .78fr);
+      gap: 48px;
+      align-items: center;
+      padding: 84px 0 132px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .86);
+      background: rgba(255, 255, 255, .1);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(239, 177, 61, .18);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0 18px;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: rgba(255, 255, 255, .84);
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-actions .btn-ghost {
+      color: var(--white);
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .24);
+    }
+
+    .micro {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, .72);
+      font-size: 13px;
+      max-width: 560px;
+    }
+
+    .product-panel {
+      background: rgba(255, 255, 255, .94);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .mock-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 8px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .mock-hero {
+      min-height: 220px;
+      display: grid;
+      align-content: end;
+      padding: 22px;
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(13, 122, 95, .94), rgba(239, 177, 61, .72)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.14) 0 1px, transparent 1px 64px);
+      color: var(--white);
+    }
+
+    .mock-hero strong {
+      display: block;
+      max-width: 320px;
+      font-size: 31px;
+      line-height: 1.02;
+    }
+
+    .mock-hero span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, .82);
+      font-weight: 700;
+    }
+
+    .mock-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .metric {
+      min-height: 96px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 24px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .band {
+      padding: 72px 0;
+    }
+
+    .band.white {
+      background: var(--white);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(260px, .55fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .kicker {
+      color: var(--leaf);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(31px, 4vw, 54px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 0;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+      margin-top: -62px;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 16px 48px rgba(24, 33, 31, .08);
+    }
+
+    .trust-item {
+      background: var(--white);
+      padding: 24px;
+    }
+
+    .trust-item b {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(24, 33, 31, .05);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: var(--mint);
+      color: var(--leaf-dark);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      line-height: 1.12;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, .72fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .step-num {
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .side-note {
+      border-radius: 8px;
+      padding: 28px;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .side-note h3 {
+      font-size: 30px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .side-note p {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      color: rgba(255, 255, 255, .9);
+      font-weight: 700;
+    }
+
+    .checklist li::before {
+      content: "";
+      flex: 0 0 18px;
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: inset 0 0 0 5px rgba(24, 33, 31, .1);
+    }
+
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .module {
+      min-height: 124px;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .module b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .module span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .offer {
+      background:
+        linear-gradient(135deg, rgba(204, 236, 223, .92), rgba(220, 238, 250, .78)),
+        var(--mint);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .offer-box {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(300px, .5fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .price {
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid rgba(24, 33, 31, .08);
+      box-shadow: var(--shadow);
+    }
+
+    .price .label {
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+    }
+
+    .price strong {
+      display: block;
+      margin: 6px 0 16px;
+      font-size: 54px;
+      line-height: 1;
+    }
+
+    .price p {
+      color: var(--muted);
+    }
+
+    .price .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 850;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .final {
+      text-align: center;
+      color: var(--white);
+      background: var(--ink);
+      padding: 80px 0;
+    }
+
+    .final h2 {
+      max-width: 760px;
+      margin: 0 auto 16px;
+    }
+
+    .final p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: rgba(255, 255, 255, .74);
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 28px 0 92px;
+      color: var(--muted);
+      background: var(--ink);
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      font-size: 13px;
+    }
+
+    footer .wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, .82);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      display: none;
+      padding: 10px 14px;
+      background: rgba(251, 250, 245, .92);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .sticky-cta .btn {
+      width: 100%;
+    }
+
+    @media (max-width: 920px) {
+      .navlinks {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .split,
+      .offer-box {
+        grid-template-columns: 1fr;
+      }
+
+      .product-panel {
+        max-width: 520px;
+      }
+
+      .trust,
+      .cards,
+      .modules {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding: 58px 0 110px;
+      }
+
+      h1 {
+        font-size: 45px;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .product-panel {
+        display: none;
+      }
+
+      .trust,
+      .cards,
+      .modules,
+      .mock-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust {
+        margin-top: -46px;
+      }
+
+      .band {
+        padding: 54px 0;
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+
+      footer .wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Digital Wealth Academy landing page">
+        <span class="mark" aria-hidden="true">D</span>
+        <span>Digital Wealth Academy</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#inside">Inside</a>
+        <a href="#modules">Modules</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Get Instant Access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Digital Wealth Academy">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Beginner-friendly digital business training</div>
+          <h1>Digital Wealth Academy</h1>
+          <p class="hero-copy">Learn how to start, package, market, and sell digital products with a step-by-step course, done-for-you resources, content vault access, weekly mentorship, and Master Resell Rights.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Get Instant Access</a>
+            <a class="btn btn-ghost" href="#inside">See What Is Included</a>
+          </div>
+          <p class="micro">No prior tech experience is required. Results depend on your effort, audience, market, and execution.</p>
+        </div>
+
+        <aside class="product-panel" aria-label="Program overview">
+          <div class="mock-head">
+            <span>DWA program dashboard</span>
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          </div>
+          <div class="mock-hero">
+            <strong>Course, product, content and community in one place.</strong>
+            <span>Built for new digital marketers.</span>
+          </div>
+          <div class="mock-grid">
+            <div class="metric"><b>80+</b><span>easy-to-follow videos</span></div>
+            <div class="metric"><b>6</b><span>editable PLR guides</span></div>
+            <div class="metric"><b>MRR</b><span>resell rights included</span></div>
+            <div class="metric"><b>$497</b><span>one-time access</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap trust" aria-label="Key benefits">
+      <div class="trust-item"><b>80+</b><span>Training modules</span></div>
+      <div class="trust-item"><b>85%</b><span>Profit potential on DWA resales</span></div>
+      <div class="trust-item"><b>0</b><span>Monthly fees for access</span></div>
+      <div class="trust-item"><b>Live</b><span>Weekly mentorship calls</span></div>
+    </div>
+
+    <section class="band white" id="inside">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Why DWA</div>
+            <h2>A practical launch path for people starting from zero.</h2>
+          </div>
+          <p>DWA combines training, templates, content, and resell rights so you can focus on learning the system and taking action instead of piecing together scattered tutorials.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon" aria-hidden="true">01</div>
+            <h3>Learn the business model</h3>
+            <p>Understand branding, digital products, funnels, email marketing, reels, trust-building, and monetization with beginner-focused lessons.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">02</div>
+            <h3>Use ready-made resources</h3>
+            <p>Get PLR guides and content vault materials that can help you create offers, lead magnets, social content, and campaign assets faster.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">03</div>
+            <h3>Sell with Master Resell Rights</h3>
+            <p>After joining, you receive rights to resell DWA and keep the majority of the profit according to the program's license terms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <div class="kicker">Your path</div>
+          <h2>From "I have no idea where to begin" to a real digital storefront.</h2>
+          <div class="steps">
+            <article class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Set your foundation</h3>
+                <p>Clarify your niche, brand, message, and the kind of audience you want to serve.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Build the sales system</h3>
+                <p>Learn the store, funnel, email, and content structure that helps turn attention into customers.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Market with content</h3>
+                <p>Use reels, faceless content, testimonials, and the content vault to stay visible without starting from scratch every day.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <aside class="side-note">
+          <h3>Designed for busy beginners.</h3>
+          <p>The sales page positions DWA as a way to learn in focused daily sessions, even if you are starting without tech skills or an existing audience.</p>
+          <ul class="checklist">
+            <li>Access to course updates and community support</li>
+            <li>No additional upsells required for the core program</li>
+            <li>Training for faceless content and digital product sales</li>
+            <li>Guidance for creating your own digital offer</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" id="modules">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Inside the curriculum</div>
+            <h2>Training that covers the full digital product stack.</h2>
+          </div>
+          <p>Instead of one narrow tactic, DWA walks through the pieces that make an online offer easier to launch, promote, and improve.</p>
+        </div>
+        <div class="modules">
+          <div class="module"><b>Start Here</b><span>Find your way through the program and community.</span></div>
+          <div class="module"><b>The Foundation</b><span>Build a value-driven brand with a clear goal.</span></div>
+          <div class="module"><b>Stan Store</b><span>Set up a simple storefront for selling online.</span></div>
+          <div class="module"><b>Email Marketing</b><span>Create follow-up that works beyond social posts.</span></div>
+          <div class="module"><b>Everything Reels</b><span>Learn a repeatable short-form content process.</span></div>
+          <div class="module"><b>Sales Funnels</b><span>Understand a higher-converting sales path.</span></div>
+          <div class="module"><b>Faceless Wealth</b><span>Build content without being the face of the brand.</span></div>
+          <div class="module"><b>MRR Masterclass</b><span>Learn how Master Resell Rights fit the model.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band offer">
+      <div class="wrap offer-box">
+        <div>
+          <div class="kicker">Bonuses included</div>
+          <h2>Training, PLR guides, content vault access, and resell rights in one purchase.</h2>
+          <p>Join once and get access to the DWA training, ongoing updates, the support community, weekly mentorship calls, editable PLR guides, and content resources you can adapt for your own projects.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Start With DWA Today</a>
+            <a class="btn btn-ghost" href="#faq">Read FAQ</a>
+          </div>
+        </div>
+        <aside class="price" aria-label="Price">
+          <span class="label">One-time access</span>
+          <strong>$497</strong>
+          <p>Secure checkout is handled by Digistore24. Your purchase gives you access according to the official DWA license and program terms.</p>
+          <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Get Instant Access</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band white" id="faq">
+      <div class="wrap split">
+        <div>
+          <div class="kicker">Questions</div>
+          <h2>Clear answers before you join.</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Do I need experience?</summary>
+            <p>No. DWA is positioned for complete beginners and walks through the basics of branding, offers, content, funnels, email, and resell rights.</p>
+          </details>
+          <details>
+            <summary>Can I do this without showing my face?</summary>
+            <p>The program includes faceless content training and content vault resources, so you can learn strategies that do not require becoming an influencer.</p>
+          </details>
+          <details>
+            <summary>Are there monthly fees?</summary>
+            <p>The offer page states there are no monthly charges for access to the program, updates, and community support.</p>
+          </details>
+          <details>
+            <summary>Does this guarantee income?</summary>
+            <p>No. DWA provides education, rights, and resources. Your results depend on your action, consistency, market, offer quality, audience, and many other factors.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <h2>Start building your digital product business with a clearer roadmap.</h2>
+        <p>Get the course, product resources, content vault, mentorship, and Master Resell Rights so you can stop collecting random advice and start following one system.</p>
+        <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Get Instant Access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>This page is an independent promotional landing page for Digital Wealth Academy. It may contain affiliate links. Earnings are not guaranteed and examples are for educational context only.</p>
+      <p><a href="https://digital-success.pages.dev/">Official sales page</a></p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" aria-label="Sticky call to action">
+    <a class="btn btn-primary" href="http://bit.ly/4xRgGxN">Get Instant Access</a>
+  </div>
+</body>
+</html>
